@@ -1,0 +1,37 @@
+<!-- vehicle-selection.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Select Vehicle</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/config.js" defer></script>
+  <script src="js/load-header.js" defer></script>
+  <script src="js/vehicle-selection.js" defer></script>
+</head>
+<body data-theme="light">
+  <!-- Modular Header Placeholder -->
+  <div id="header-container"></div>
+
+  <main class="vehicle-container">
+    <h1>Select Your Vehicle</h1>
+
+    <!-- Vehicle List Grid -->
+    <div id="vehicleList"></div>
+
+    <!-- Continue Button -->
+    <div class="actions">
+      <button id="continueBtn" disabled aria-disabled="true">Continue</button>
+    </div>
+
+    <!-- Optional: Loading and error display elements -->
+    <div id="loadingIndicator" style="display: none;">Loading...</div>
+    <div id="errorDisplay" style="display: none;">
+      <p>Something went wrong. Please try again.</p>
+      <button id="retryButton">Retry</button>
+    </div>
+  </main>
+</body>
+</html>

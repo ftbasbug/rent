@@ -1,0 +1,41 @@
+// foundation.html 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent-a-Car Booking</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Only theme init remains in head -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+</head>
+<body>
+  <header>
+    <div id="header-container"></div>
+    <!-- Step indicator placeholder (empty until initialized) -->
+    <div id="step-indicator"></div>
+    <!-- Booking ID will be populated by foundation.js -->
+    <div id="booking-id" class="booking-id"></div>
+  </header>
+
+  <main id="app">
+    <div class="spa-loading">
+      <div class="loader"></div>
+      <p>Loading your booking...</p>
+    </div>
+  </main>
+
+  <footer>
+    <!-- Price summary will be injected here -->
+    <div id="price-summary"></div>
+  </footer>
+
+  <script src="js/foundation.js"></script>
+</body>
+</html>

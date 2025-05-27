@@ -1,0 +1,32 @@
+<!-- details-payment.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Details & Payment</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/config.js" defer></script>
+  <script src="js/details-payment.js" defer></script>
+</head>
+<body>
+  <main class="details-container">
+    <h1>Enter Your Details</h1>
+    <form id="detailsForm" target="hidden_iframe" method="POST" action="">
+      <input type="text" name="fullname" placeholder="Full Name" required />
+      <input type="text" name="surname" placeholder="Surname" required />
+      <input type="date" name="dob" placeholder="Date of Birth" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="text" name="idnumber" placeholder="ID Number" required />
+
+      <input type="text" name="cardnumber" placeholder="Card Number" required />
+      <input type="text" name="expiry" placeholder="MM/YY" required />
+      <input type="text" name="cvv" placeholder="CVV" required />
+
+      <button type="submit">Submit Booking</button>
+    </form>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+  </main>
+</body>
+</html>

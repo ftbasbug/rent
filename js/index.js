@@ -1,5 +1,3 @@
-// index.js
-
 document.addEventListener("DOMContentLoaded", () => {
   const waitForElements = setInterval(() => {
     const darkModeBtn = document.getElementById("darkModeToggle");
@@ -19,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       bookingForm.addEventListener("submit", function () {
         this.action = CONFIG.FORM_ENDPOINT;
         setTimeout(() => {
-          window.location.href = "pages/vehicle-selection.html";
+          window.location.href = "foundation.html?page=vehicle-selection";
         }, 1000);
       });
     }

@@ -1,4 +1,4 @@
-/* vehicle-selection.js */
+// js/vehicle-selection.js
 
 class VehicleSelection {
   constructor() {
@@ -57,15 +57,15 @@ class VehicleSelection {
       : this.state.vehicles.filter(v => v.Type === this.state.currentFilter);
 
     this.elements.grid.innerHTML = filteredVehicles.map(vehicle => `
-      <div class="vehicle-card" 
-           data-id="${vehicle["Car ID"]}" 
+      <div class="vehicle-card"
+           data-id="${vehicle["Car ID"]}"
            data-type="${vehicle["Type"] || 'default'}">
         <h3>${vehicle["Name"]} ${vehicle["Model"]}</h3>
         <div class="vehicle-details">
           <p>$${vehicle["Daily Rate"]}/day</p>
           <p>${vehicle["Seats"]} seats • ${vehicle["Transmission"]}</p>
         </div>
-        <button class="select-btn" 
+        <button class="select-btn"
                 data-id="${vehicle["Car ID"]}"
                 aria-selected="${this.state.selectedVehicle === vehicle["Car ID"]}">
           ${this.state.selectedVehicle === vehicle["Car ID"] ? '✓ Selected' : 'Select'}
@@ -149,8 +149,4 @@ class VehicleSelection {
   }
 }
 
-if (window.bookingSPA) {
-  window.initVehicleSelection = () => new VehicleSelection();
-} else {
-  document.addEventListener('DOMContentLoaded', () => new VehicleSelection());
-}
+document.addEventListener('DOMContentLoaded', () => new VehicleSelection());

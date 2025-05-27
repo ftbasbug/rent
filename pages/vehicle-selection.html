@@ -1,37 +1,141 @@
-<!-- vehicle-selection.html -->
+<!-- pages/vehicle-selection.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Select Vehicle</title>
-
-  <link rel="stylesheet" href="css/style.css" />
-  <script src="js/config.js" defer></script>
-  <script src="js/load-header.js" defer></script>
-  <script src="js/vehicle-selection.js" defer></script>
+  <title>Vehicle Selection</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="../js/config.js" defer></script>
+  <script src="../js/load-header.js" defer></script>
+  <script src="../js/vehicle-selection.js" defer></script>
 </head>
 <body data-theme="light">
-  <!-- Modular Header Placeholder -->
   <div id="header-container"></div>
 
-  <main class="vehicle-container">
+  <main>
     <h1>Select Your Vehicle</h1>
-
-    <!-- Vehicle List Grid -->
-    <div id="vehicleList"></div>
-
-    <!-- Continue Button -->
-    <div class="actions">
-      <button id="continueBtn" disabled aria-disabled="true">Continue</button>
-    </div>
-
-    <!-- Optional: Loading and error display elements -->
-    <div id="loadingIndicator" style="display: none;">Loading...</div>
-    <div id="errorDisplay" style="display: none;">
-      <p>Something went wrong. Please try again.</p>
-      <button id="retryButton">Retry</button>
-    </div>
+    <!-- Araç seçim içeriği buraya -->
   </main>
 </body>
 </html>
+
+
+// js/load-header.js
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("../components/header.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("header-container").innerHTML = data;
+
+      // Reattach event listeners after injection
+      const toggle = document.getElementById("darkModeToggle");
+      if (toggle) {
+        toggle.addEventListener("click", () => {
+          const currentTheme = document.body.getAttribute("data-theme");
+          const newTheme = currentTheme === "dark" ? "light" : "dark";
+          document.body.setAttribute("data-theme", newTheme);
+        });
+      }
+    });
+});
+
+
+// js/config.js
+const CONFIG = {
+  FORM_ENDPOINT: 'https://script.google.com/macros/s/AKfycbz3OlzaKfk01bSI8FxbeLkwAytohxSgun_b7bxCEBQdJ4NKpbUCrlKcg1VAASsfHg6q/exec',
+  CARS_API_URL: 'https://script.google.com/macros/s/AKfycbwKEUS71H3L6p6Rx1yHfDppOFyNuzLiD4sMWCM11mviY6yiVlNnKzJ0P-HupKsPHqH-/exec'
+};
+
+
+/* css/style.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--background-color, #f9f9f9);
+  color: var(--text-color, #333);
+  transition: background 0.3s, color 0.3s;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--header-bg-color, #fff);
+  color: var(--header-text-color, #333);
+}
+
+.logo-container .logo {
+  height: 40px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  color: var(--header-text-color, #333);
+}
+
+.toggle-btn:focus {
+  outline: none;
+}
+
+#sunIcon, #moonIcon {
+  display: none;
+}
+
+body[data-theme="dark"] #sunIcon {
+  display: inline-block;
+}
+
+body[data-theme="light"] #moonIcon {
+  display: inline-block;
+}
+
+main {
+  max-width: 600px;
+  margin: auto;
+  padding: 1rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+form input,
+form button {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+body[data-theme="dark"] {
+  --background-color: #333;
+  --text-color: #f9f9f9;
+  --header-bg-color: #444;
+  --header-text-color: #f9f9f9;
+}
+
+body[data-theme="light"] {
+  --background-color: #f9f9f9;
+  --text-color: #333;
+  --header-bg-color: #fff;
+  --header-text-color: #333;
+}
+
+
+// js/vehicle-selection.js
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("Vehicle selection script loaded.");
+  // Araç listesini buraya yükleyebilirsiniz
+});
